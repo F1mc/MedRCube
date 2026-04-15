@@ -12,15 +12,20 @@
 
 ## ✨ Highlights
 
-- **7,626** rigorously constructed samples from **36** medical imaging datasets, spanning **5** anatomical regions, **4** imaging modalities, and **8** cognitive tasks, built through a systematic pipeline with **radiologist and clinician** participation throughout.
-- A **Competency Space** that replaces flat metrics with a dense, multi-axis evaluation structure — every (Anatomy × Modality × Task) intersection forms a **Competency Voxel** for precise capability localization.
-- **Reasoning credibility quantification** — by constructing multi-level tasks on the same image, we measure whether a model's correct diagnosis is truly grounded in valid perception or merely a lucky guess.
-- **33 MLLMs** benchmarked; the best model reaches only **62.55%** overall accuracy, with substantial variance across competency voxels, demonstrating strong discriminative power.
-- Key discoveries: models that can diagnose diseases still fail at the most basic perceptual tasks — like view recognition (coronal vs. sagittal) — that any radiologist masters on day one. Worse, the stronger a model scores on diagnosis, the *more* it relies on reasoning shortcuts (r = 0.693, p < 10⁻⁵), meaning much of the apparent progress may be clinically untrustworthy.
+- **7,626** rigorously constructed samples from **36** medical imaging datasets, spanning **5** anatomical regions, **4** imaging modalities, and **8** cognitive tasks.
+- A **three-axis Competency Space** (Anatomy × Modality × Task) replaces flat metrics, enabling precise localization of model capabilities and deficits.
+- **Reasoning credibility quantification** — multi-level task chains on the same image reveal whether a correct reasoning is grounded in valid perception or just a shortcut.
+- **33 MLLMs** benchmarked; the best reaches only **62.55%** overall, with substantial variance across the competency space.
+- **Failing the basics**: models that diagnose diseases still flunk view recognition (coronal vs. sagittal) — a day-one radiology skill.
+- **Stronger ≠ more trustworthy**: diagnostic accuracy correlates positively with shortcut reliance (**r = 0.693, p < 10⁻⁵**) — much of the apparent progress may be clinically untrustworthy.
 
 ## 📖 Overview
 
 **MedRCube** is a multidimensional medical imaging benchmark designed to answer not just *how well* a model performs, but *where*, *why*, and *how credibly* it does so.
+
+<p align="center">
+   <img src="assets/medrcube_framework.png" alt="Overview of MedRCube." width="100%">
+</p>
 
 In total, MedRCube comprises **7,626** high-quality samples curated from **36** diverse datasets covering **5** anatomical regions (Heart, Chest, Breast, Lung, Brain), **4** imaging modalities (X-ray, CT, MRI, Ultrasound), and **8** cognitive tasks organized into a three-tier hierarchy. Unlike prior benchmarks that report a single aggregate score or organize evaluation along one dimension, MedRCube structures every sample into a **Competency Space** defined by three orthogonal axes:
 
@@ -30,13 +35,10 @@ In total, MedRCube comprises **7,626** high-quality samples curated from **36** 
 | **Imaging Modality** | X-ray, CT, MRI, Ultrasound |
 | **Task Hierarchy** | *Low-level:* Modality / View / Protocol Recognition → *Mid-level:* Organ Recognition, ROI Grounding → *High-level:* Abnormality Diagnosis, Disease Diagnosis, Severity Grading |
 
-Each intersection of (Anatomy × Modality × Task) forms a **Competency Voxel**, enabling fine-grained capability localization that flat metrics cannot provide. On top of this, the task hierarchy mirrors the radiological reasoning process — from basic perception through semantic understanding to high-level diagnosis. By constructing multi-level task chains on the same image, MedRCube can verify whether a model's correct high-level answer is genuinely supported by correct low-level perception, or is merely "hallucinated correctness" — a correct diagnosis without recognizing the lesions or even target organ, which is inadmissible in clinical practice.
+Each (Anatomy × Modality × Task) intersection forms a **Competency Voxel** for fine-grained capability localization. Crucially, the task hierarchy mirrors the radiological reasoning process, so multi-level task chains on the *same* image can verify whether a correct high-level answer is genuinely grounded in low-level perception — or is merely "hallucinated correctness", a right diagnosis from a model that fails to recognize even the target organ.
 
 This design supports a three-level evaluation paradigm: **holistic benchmarking** for overall ranking, **fine-grained capability profiling** by slicing along any axis or zooming into specific voxels, and **credibility verification** through cross-level consistency analysis on shared images.
 
-<p align="center">
-   <img src="assets/medrcube_framework.png" alt="Overview of MedRCube." width="100%">
-</p>
 
 ## 🔧 Construction
 
