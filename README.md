@@ -10,6 +10,8 @@
 ## 🔥 News
 - **🔥 [2026-04-14]** MedRCube is published!
 
+> **Release note:** About 1,000+ samples from restricted sources include questions and metadata only — images are not redistributed due to licensing constraints. Reproducible preprocessing scripts are **coming soon** so researchers can reconstruct images after obtaining access from the original providers.
+
 ## ✨ Highlights
 
 - **7,626** rigorously constructed samples from **36** medical imaging datasets, spanning **5** anatomical regions, **4** imaging modalities, and **8** cognitive tasks.
