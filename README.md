@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-  <a href="#" target="_blank">📖 arXiv Paper</a> •
+  <a href="https://arxiv.org/abs/2604.13756" target="_blank">📖 arXiv Paper</a> •
   <a href="https://huggingface.co/datasets/Flmc/MedRCube" target="_blank">🤗 HuggingFace Dataset</a> 
 </p>
 
@@ -181,10 +181,12 @@ This project is licensed under [Apache-2.0](https://github.com/F1mc/MedRCube/blo
 If you find our work helpful, please cite:
 
 ```bibtex
-@article{medrcube2026,
+@misc{medrcube2026,
   title={MedRCube: A Multidimensional Framework for Fine-Grained and In-Depth Evaluation of MLLMs in Medical Imaging},
   author={Bao, Zhijie and Chen, Fangke and Bao, Licheng and Zhang, Chenhui and Chen, Wei and Peng, Jiajie and Wei, Zhongyu},
   journal={arXiv preprint},
-  year={2026}
+  year={2026},
+  eprint={2604.13756},
+  url={https://arxiv.org/abs/2604.13756},
 }
 ```
